@@ -30,7 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['django-network.onrender.com', 'localhost', '127.0.0.1']
 
 
-# Application definition
+DATABASE_URL = 'postgresql://django_sql_6u80_user:eVXzEERqwga1Z5jNUiocRqVdgTGKJGNb@dpg-cure56rv2p9s73ah3fo0-a/django_sql_6u80'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
