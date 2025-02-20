@@ -142,10 +142,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
 
-# For Render (Production)
+# For production (Render)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# For collecting static files
+# For collecting static files from apps (e.g., Django REST framework)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
