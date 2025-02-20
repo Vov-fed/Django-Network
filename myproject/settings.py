@@ -139,5 +139,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+STATIC_URL = '/static/'
+
+# For Render (Production)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# For collecting static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Optional: if you're using a CDN for static files (e.g., Cloudflare)
+# STATIC_URL = 'https://yourcdn.com/static/'
