@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+{% else %}
+    <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+{% endif %}
+
+    <h1>Product List</h1>
+
+    <ul>
+        {% for product in products %}
+            <li>
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" width="300">
+                {% endif %}
+                <a href="{% url 'product_detail' product.id %}"><strong>{{ product.name }}</strong></a> - ${{ product.price }}<br>
+                <p>{{ product.description }}</p>
+                {% if user == product.owner %}
+                <a href="{% url 'edit_product' product.id %}">Edit</a>
+                <a href="{% url 'delete_product' product.id %}">Delete</a>
+            {% endif %}
+            </li>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
